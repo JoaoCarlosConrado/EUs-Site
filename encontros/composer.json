@@ -1,0 +1,28 @@
+{
+    "name": "ufc/eu",
+    "description": "site dos encontros universitarios",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "slim/slim": "^3.12",
+        "psr/container": "1.0",
+        "catfan/medoo": "^1.6",
+        "slim/twig-view": "2.1",
+        "twig/twig": "1.42.5",  
+        "monolog/monolog": "^1.24",
+        "fightbulc/moment": "dev-master",
+        "slim/flash": "dev-master",
+        "kanellov/slim-twig-flash": "^0.2.0",
+        "guzzlehttp/guzzle": "~6.0",
+	"vlucas/phpdotenv": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "src/"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^3.4.29"
+    }
+}

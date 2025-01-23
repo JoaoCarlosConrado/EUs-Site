@@ -1,0 +1,45 @@
+{% extends "admin/base/template-base-dashboard.html" %}
+{% block title %}{{texto}} Depoimento{% endblock %}
+{% block page %}
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="col-lg-12">
+                        <form method="POST" enctype="multipart/form-data">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>{{texto}} Depoimento</strong>
+                            </div>
+                            <div class="card-body card-block">
+                                {% if mensagens %}
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <ul>
+                                        {% for msg in mensagens %}
+                                        <li>{{msg}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                {% endif %}
+                                <div class="form-group">
+                                    <label for="nome_autor" class=" form-control-label">Nome do Autor</label>
+                                    <input type="text" id="nome_autor" name='nome_autor' placeholder="Digite o Nome do Autor do Depoimento..." class="form-control"
+                                        value='{{depoimento.nome_autor}}'>
+                                </div>
+                                <div class="form-group">
+                                    <label for="depoimento" class=" form-control-label">Depoimento</label>
+                                    <textarea name="depoimento" id="depoimento" rows="5" placeholder="Digite o Conteúdo do Depoimento..."
+                                        class="form-control">{{depoimento.depoimento|default("")}}</textarea>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" name='enviar' value="{{depoimento.id}}" class="btn btn-success btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> {{texto}}
+                                </button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends ['front/', ano_atual['nome_ano'], '/base/template-base.html']|join %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<main>
+    <div class="inscreva-se">
+        <div class="frase">
+            <div class="img">
+                <img src="{{ base_url() }}/assets/templates/2022/images/educacaoreiventafuturos.svg" width="100%" alt="">
+            </div>
+            <div class="link">
+                <a href="http://sysprppg.ufc.br/eu/2022/" target="_blank">Inscreva-se</a>
+            </div>
+        </div>
+        
+        <div class="sobre">
+            <div class="texto">
+                <h2>Sobre</h2>
+                <p>O VII ENCONTROS UNIVERSITÁRIOS DA UFC
+                    CAMPUS DE RUSSAS têm como objetivo
+                    principal divulgar as atividades acadêmicas
+                    de ensino, pesquisa e extensão
+                    desenvolvidas no Campus da UFC de
+                    Russas.O evento deve promover a
+                    integração e a troca de experiências entre
+                    estudantes, servidores docentes e
+                    técnico-administrativos. Adicionalmente,
+                    deve favorecer a criação de novos projetos
+                    e o impulsionamento de projetos já
+                    implementados na UFC - Campus de Russas,
+                    além de desenvolver novas habilidades e
+                    competências para os estudantes que
+                    apresentam trabalhos nesse tipo de evento.</p>
+            </div>
+        </div>
+    </div>
+
+    {% if noticias %}
+    <section class="noticias" id="noticias">
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    {% for noticia in noticias%}
+                    <div class="card swiper-slide">
+                        <div class="image">
+                            <img src="{{ base_url() }}/assets/templates/2022/images/Educação-reinventa-futuros.png" alt="Imagem Encontros Universitários">
+                        </div>
+                        <div class="texto">
+                            <p>
+                                {{noticia.titulo}}
+                            </p>
+                        </div>
+                        <div class="ler-mais">
+                            <img src="{{ (noticia.imagem) ? [base_url(),"/uploads/noticias/", noticia.imagem]|join : [base_url(), "/assets/templates/2022/images/Vector.svg"]|join }} " alt="">
+                            <div class="ler-mais-link">
+                                <a href="{{base_url()}}/noticia/{{noticia.id}}" target="_blank">Ler mais</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="swiper-button-next swiper-navBtn1"></div>
+            <div class="swiper-button-prev swiper-navBtn2"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    {% endif %}
+
+    <div class="cronograma" id="cronograma">
+        {% if calendario %}
+        <h1>CRONOGRAMA</h1>
+        <div class="wrapper">
+            <div class="center-line">
+            </div>
+            {% for dia in calendario %}
+            <div class="row row-{{ (loop.index%2) == 1 ? '1' : '2' }}" data-anime="left">
+                <section>
+                    <i class="icon fas fa-home"></i>
+                    <div class="details">
+                        <span class="title">{{dia.data|raw}}</span>
+                    </div>
+                    <p>{{dia.descricao|raw}}</p>
+                    {% if dia.link %}
+                    <div class="bottom">
+                        <a href="{{dia.link|raw}}" target="_blank">Clique para mais informações</a>
+                    </div>
+                    {% endif %}
+                </section>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <section class="depoimento">
+            <div class="conteudo-depoimento">
+                <h1>DEPOIMENTO</h1>
+                <p>Me chamo Áquilas, sou aluno de Ciência da Computação, participei uma vez dos encontros e adorei a
+                    proposta de apresentar o que eu fiz no decorrer dos dois semestres. A experiência foi ótima, a
+                    partir disso se teve troca de conhecimentos com docentes e dicentes.</p>
+                <p>Áquilas Rodrigues Jucá - Aluno do curso de Ciência da Computação
+                </p>
+            </div>
+            <div class="encerramento">
+                <h1>ORGANIZAÇÃO</h1>
+                <div class="imagem">
+                    <img src="{{ base_url() }}/assets/templates/2022/images/foto-encerramento-eu2022.jpg" alt="foto de encerramento EU Russas 2022">
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</main>
+{% endblock content %}

@@ -1,0 +1,129 @@
+{% extends "admin/base/template-base-dashboard.html" %}
+{% block title %}{{texto}} Mostra Artística{% endblock %}
+{% block page %}
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="col-lg-12">
+                        <form method="POST" enctype="multipart/form-data">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>{{texto}} Mostra Artística</strong>
+                            </div>
+                            <div class="card-body card-block">
+                                {% if mensagens %}
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <ul>
+                                        {% for msg in mensagens %}
+                                        <li>{{msg}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                {% endif %}
+                                <div class="form-group">
+                                    <label for="titulo" class=" form-control-label">Titulo</label>
+                                    <input type="text" id="titulo" name="titulo" placeholder="Digite o Titulo" class="form-control" value="{{artistico.titulo}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="facilitador" class=" form-control-label">Facilitador</label>
+                                    <input type="text" id="facilitador" name="facilitador" placeholder="Digite o Facilitador" class="form-control" value="{{artistico.facilitador}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sala" class=" form-control-label">Local</label>
+                                    <input type="text" id="local" name="local" placeholder="Digite o Local" class="form-control" value="{{artistico.local}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="data" class=" form-control-label">Data:</label>
+                                    <input type="text" id="data" name="data" placeholder="Digite a Data" class="form-control" value="{{artistico.data}}">
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-1">
+                                        <label for="area" class=" form-control-label">Área:</label>
+                                    </div>
+                                    <div class="col-12 col-md-11">
+                                        <select name="area" id="area" class="form-control">
+                                            {% for area in areas %}
+                                            <option value="{{area.id}}" {{(artistico.area_id|default(""))==area.id?"selected":''}}>{{area.nome}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resumo" class=" form-control-label">Resumo</label>
+                                    <textarea name="resumo" id="resumo" rows="5" placeholder="Digite o Resumo..."
+                                        class="form-control">{{artistico.resumo}}</textarea>
+                                </div>
+                                {% if artistico.imagem %}
+                                <img src="{{base_url()}}/uploads/artistico/{{artistico.imagem}}" style="width: 50%">
+                                {% endif %}
+                                <div class="form-group">
+                                    <label for="imagem" class=" form-control-label">Imagem:</label>
+                                    <input type="file" id="imagem" name="imagem" class="form-control-file">
+                                </div>
+                                <div class="form-group">
+                                    <label for="imagem_descricao" class=" form-control-label">Descrição da Imagem</label>
+                                    <input type="text" id="imagem_descricao" name='imagem_descricao' placeholder="Digite a Descrição da Imagem da Noticia" class="form-control"
+                                        value='{{noticia.imagem_descricao}}'>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass" class=" form-control-label">Tipo:</label>
+                                    <div class="container row form-group">
+                                        <div class="form-check col-lg-6">
+                                            <input class="form-check-input" type="radio" name="tipo" id="palco" value="1"
+                                                {{ artistico.tipo|default('1') == '1' ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="palco">
+                                                Shows
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-lg-6">
+                                            <input class="form-check-input" type="radio" name="tipo" id="mostra" value="2"
+                                                {{ artistico.tipo == '2' ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="mostra">
+                                                Sessão Pipoca
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-lg-6">
+                                            <input class="form-check-input" type="radio" name="tipo" id="feira" value="3"
+                                                {{ artistico.tipo == '3' ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="feira">
+                                                Espaço Pet
+                                            </label>
+                                        </div>
+                                        <div class="form-check col-lg-6">
+                                            <input class="form-check-input" type="radio" name="tipo" id="espaco" value="4"
+                                                {{ artistico.tipo == '4' ? 'checked' : ''}}>
+                                            <label class="form-check-label" for="espaco">
+                                                Feira Mix
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" name='enviar' value="{{artistico.id}}" class="btn btn-success btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> {{texto}}
+                                </button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+{% endblock %}
+{% block js %}
+    <script src="{{base_url()}}/assets/ckeditor/ckeditor.js"></script>
+    <script src="{{base_url()}}/assets/ckeditor/translations/pt-br.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#resumo'), {
+                language: 'pt-br'
+            })
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+{% endblock %}

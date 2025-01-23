@@ -1,0 +1,70 @@
+                        <li class="">
+                            <a class="js-arrow" href="{{base_url()}}/admin/dashboard">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        </li>
+                        {% if "tipo"|session == 1%}
+                        <li>
+                            <a href="{{base_url()}}/admin/usuarios">
+                                <i class="fas fa-users"></i>Usuários
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a href="{{base_url()}}/admin/areas">
+                                <i class="fas fa-tags "></i>Áreas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{base_url()}}/admin/noticias">
+                                <i class="fas fa-envelope"></i>Noticias
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{base_url()}}/admin/editais">
+                                <i class="fas fa-file-alt"></i>Editais
+                            </a>
+                        </li>
+                        {% if "tipo"|session <= 2%}
+                        <li>
+                            <a href="{{base_url()}}/admin/cronogramas">
+                                <i class="fas fa-calendar-alt"></i>Cronogramas
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a href="{{base_url()}}/admin/calendario">
+                                <i class="fas fa-calendar-alt"></i>Calendario
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{base_url()}}/admin/apresentacoes">
+                                <i class="fas fa-book"></i>Apresentações
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{base_url()}}/admin/cursos_oficinas">
+                                <i class="fas fa-calendar"></i>Mini Cursos e Oficinas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{base_url()}}/admin/palestras">
+                                <i class="fas fa-bookmark"></i>Palestras
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{base_url()}}/admin/artistico">
+                                <i class="fas fa-archive"></i>Mostra Artística
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{base_url()}}/admin/depoimentos">
+                                <i class="fas fa-file"></i>Depoimentos
+                            </a>
+                        </li>
+                        {% if "tipo"|session == 1%}
+                        <li>
+                            <a href="{{base_url()}}/admin/anos">
+                                <i class="fas fa-calendar-check-o "></i>Anos
+                            </a>
+                        </li>
+                        {% endif %}
