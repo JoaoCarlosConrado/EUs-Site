@@ -11,11 +11,15 @@ Site dos Encontros Universitários - Campus Russas
 **3°** - Crie a rede docker (net_backend) para os containers do site e banco:<br>
 \# docker network create net_backend
 
+**4°** Crie os volumes com:
+docker volume create mysql_data
+docker volume create mysql_conf
+
 **4°** - Execute o container do banco, substituindo "SENHA_ROOT" por sua senha root:<br>
-\# docker run --name mysql_eu --restart=always --network=net_backend -v /home/mysql/conf.d:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -v /etc/localtime:/etc/localtime:ro -e MYSQL_ROOT_PASSWORD=SENHA_ROOT -d mysql:8.4
+\# docker run --name mysql_eu --restart=always --network=net_backend -v mysql_data:/var/lib/mysql -v mysql_conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=SENHA_USER -d mysql:8.4
 
 **5°** - Acesse o phpMyAdmin, do site em produção, e faça o backup do bd dos encontros universitários (eu_db):<br>
-http://200.129.62.33:8006<br>
+http://200.129.62.41/phpmyadmin/<br>
 Copie o sql do banco para o seu container (mysql_eu):<br>
 \# docker cp eu_db.sql mysql_eu:/eu_db.sql<br>
 Em seguida, restaure o banco para o seu mysql local:<br>
