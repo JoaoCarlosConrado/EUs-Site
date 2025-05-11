@@ -18,7 +18,7 @@ docker volume create mysql_conf
 \# docker run --name mysql_eu --restart=always --network=net_backend -v mysql_data:/var/lib/mysql -v mysql_conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=SENHA_ROOT -d mysql:8.4
 
 **6°** - Acesse o phpMyAdmin, do site em produção, e faça o backup do bd dos encontros universitários (eu_db):<br>
-http://200.129.62.41/phpmyadmin/<br>
+http://200.129.62.33:8006/<br>
 Copie o sql do banco para o seu container (mysql_eu):<br>
 \# docker cp eu_db.sql mysql_eu:/eu_db.sql<br>
 Em seguida, restaure o banco para o seu mysql local:<br>
