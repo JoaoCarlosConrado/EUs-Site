@@ -3,7 +3,6 @@
 Site dos Encontros Universitários - Campus Russas
 
 **1°** - Clone o repositório:<br>
-\# git clone https://github.com/wilken-hub/EUs-Site.git
 
 **2°** - Acesse o diretório EUs-Site:<br>
 \# cd EUs-Site/
@@ -12,11 +11,11 @@ Site dos Encontros Universitários - Campus Russas
 \# docker network create net_backend
 
 **4°** Crie os volumes com:
-docker volume create mysql_data
+docker volume create mysql_data<br>
 docker volume create mysql_conf
 
 **5°** - Execute o container do banco, substituindo "SENHA_ROOT" por sua senha root:<br>
-\# docker run --name mysql_eu --restart=always --network=net_backend -v mysql_data:/var/lib/mysql -v mysql_conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=SENHA_USER -d mysql:8.4
+\# docker run --name mysql_eu --restart=always --network=net_backend -v mysql_data:/var/lib/mysql -v mysql_conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=SENHA_ROOT -d mysql:8.4
 
 **6°** - Acesse o phpMyAdmin, do site em produção, e faça o backup do bd dos encontros universitários (eu_db):<br>
 http://200.129.62.41/phpmyadmin/<br>
@@ -46,7 +45,7 @@ DB_NAME='eu_db'<br>
 DB_PORT=3306
 
 **9°** - Crie os volumes de upload e logs
-docker volume create uploads_eu
+docker volume create uploads_eu<br>
 docker volume create logs_eu
 
 **10°** - Crie a imagem docker do Apache2 e, em seguida, execute o container:<br>
