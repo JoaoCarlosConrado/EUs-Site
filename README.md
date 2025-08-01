@@ -10,7 +10,7 @@ Site dos Encontros Universitários - Campus Russas
 **3°** - Crie a rede docker (net_backend) para os containers do site e banco:<br>
 \# docker network create net_backend
 
-**4°** Crie os volumes com:
+**4°** Crie os volumes com:<br>
 docker volume create mysql_data<br>
 docker volume create mysql_conf
 
