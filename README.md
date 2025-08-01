@@ -44,7 +44,7 @@ DB_PASSWORD='SENHA_USER'<br>
 DB_NAME='eu_db'<br>
 DB_PORT=3306
 
-**9°** - Crie os volumes de upload e logs
+**9°** - Crie os volumes de upload e logs:<br>
 docker volume create uploads_eu<br>
 docker volume create logs_eu
 
