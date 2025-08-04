@@ -1768,10 +1768,6 @@ class AdminController
                 array_push($argumentos['mensagens'], 'Ano inválido!');
             else if($anosIguais > 0)
                 array_push($argumentos['mensagens'], 'Esse ano já foi cadastrado!');
-        
-            if ((empty($dados['id_evento']) || is_null($dados['id_evento'])) && $dados['id_evento'] <= 0)
-                array_push($argumentos['mensagens'], 'Id do Evento inválido!');
-
 
             if (count($argumentos['mensagens']) == 0) {
                 $ano = new Ano();
