@@ -2639,11 +2639,11 @@ https://flickity.metafizzy.co
     width: 127px;
     height: 33px;
     flex-shrink: 0;
-    border: 1px solid var(--Color-1, #3e1718);
-    background: var(--Color-10, #f4e4d5);
-    box-shadow: 3px 3px 0px 0px #3e1718;
+    border: 1px solid var(--primary-color);
+    background: var(--Color-10, white);
+    box-shadow: 3px 3px 0px 0px var(--primary-color);
 
-    color: #3e1718;
+    color: var(--primary-color);
     text-align: center;
     font-family: Fraunces;
     font-size: 14px;
@@ -2653,7 +2653,7 @@ https://flickity.metafizzy.co
 }
 
 .edital-button:hover {
-    color: #d92c1b;
+    color: var(--quarternary-color);
 }
 
 .valores {
