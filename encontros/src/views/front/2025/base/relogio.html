@@ -1,0 +1,43 @@
+<div class="div_relogio" style="visibility: hidden;">
+    <span>
+        Faltam <span id="dias"></span> dias, <span id="horas"></span> horas, <span id="minutos"></span> minutos e <span id="segundos"></span> segundos para o dia do evento.
+    </span>
+</div>
+
+<script>
+    // Defina a data do evento (ano, mês, dia, hora, minuto, segundo)
+    const dataEvento = new Date('2025-11-05T00:00:00').getTime();
+
+    // Função para atualizar o tempo a cada segundo
+    function atualizarRelogio() {
+        const agora = new Date().getTime();
+        const diferenca = dataEvento - agora;
+
+        // Calcula o tempo restante
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+        // Atualiza o conteúdo da div
+        document.getElementById('dias').innerText = dias;
+        document.getElementById('horas').innerText = horas;
+        document.getElementById('minutos').innerText = minutos;
+        document.getElementById('segundos').innerText = segundos;
+
+        // Tornar a div visível após o primeiro cálculo
+        document.querySelector('.div_relogio').style.visibility = 'visible';
+
+        // Quando a data chegar, parar o relógio
+        if (diferenca < 0) {
+            clearInterval(contagemRegressiva);
+            document.querySelector('.div_relogio').innerHTML = "Chegou o dia do evento!";
+        }
+    }
+
+    // Atualiza o relógio a cada segundo
+    const contagemRegressiva = setInterval(atualizarRelogio, 1000);
+
+    // Executa a função imediatamente para evitar o atraso inicial
+    atualizarRelogio();
+</script>

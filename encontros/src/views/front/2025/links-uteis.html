@@ -1,0 +1,109 @@
+{% extends ['front/', ano_atual['nome_ano'], '/base/template-base.html']|join %}
+{% block title %}Links úteis{% endblock %} {% block content %}
+<!-- Content -->
+{% include ['front/', ano_atual['nome_ano'], '/base/navbar.html']|join %}
+<div class="h-full px-4 bg-page-main py-5">
+    <div class="md:max-w-6xl md:mx-auto md:flex md:items-center md:justify-between bg-mosaico py-5 px-5">
+        <div class="py-5 md:py-14 sm:py-8 xl:py-16 px-5 bg-whitesmoke-500 w-full">
+            <h1 id="titulo"
+                class="text-xl font-semibold md:text-3xl sm:text-2xl xl:text-5xl xl:font-bold text-maire-500">
+                Links úteis
+            </h1>
+            <div id="conteudo" class="xl:text-xl text-maire-500">
+                <h2 style="
+                        margin-top: 90px;
+                        margin-bottom: 40px;
+                        font-size: 30px;
+                    " class="text-xl font-semibold md:text-3xl sm:text-2xl xl:text-5xl xl:font-bold text-maire-500">
+                    LINK PARA HOMOLOGAÇÃO E AVALIAÇÃO DOS RESUMOS
+                </h2>
+
+                <div class="edital py-2">
+                    <p class="text-xl font-semibold uppercase text-maire-500 mb-3">
+                        Sistema ZERO C
+                    </p>
+                    <a href="https://zeroc-prod.web.app/" target="_blank"
+                        class="px-3 py-2 font-semibold uppercase edital-button">
+                        Clique aqui
+                    </a>
+                </div>
+
+                <!-- <h2 style="
+                        margin-top: 90px;
+                        margin-bottom: 40px;
+                        font-size: 30px;
+                    " class="text-xl font-semibold md:text-3xl sm:text-2xl xl:text-5xl xl:font-bold text-maire-500">
+                    MODELOS PARA ELABORAÇÃO DOS RESUMOS
+                </h2>
+                <div class="flex flex-col space-y-12">
+                    <div class="edital py-2">
+                        <p class="text-xl font-semibold uppercase text-maire-500 mb-3">
+                            Resumo Simples (blind review) em ODT
+                        </p>
+                        <a href="{{base_url()}}/assets/templates/2024/dist/documents/RESUMO-SIMPLES-DE-TRABALHO-PARA-OS-EU2024-odt.odt"
+                            target="_blank" class="px-3 py-2 font-semibold uppercase edital-button">
+                            Clique aqui
+                        </a>
+                    </div>
+
+                    <div class="edital py-2">
+                        <p class="text-xl font-semibold uppercase text-maire-500 mb-3">
+                            Resumo Simples (blind review) em DOCX
+                        </p>
+                        <a href="{{base_url()}}/assets/templates/2024/dist/documents/modelo de resumo simples (blind review) - eu2024.docx"
+                            target="_blank" class="px-3 py-2 font-semibold uppercase edital-button">
+                            Clique aqui
+                        </a>
+                        </div>
+                        
+                        <div class="edital py-2">
+                            <p class="text-xl font-semibold uppercase text-maire-500 mb-3">
+                                Resumo Simples (completo) em DOCX
+                                </p>
+                            <a href="{{base_url()}}/assets/templates/2024/dist/documents/modelo de resumo simples completo - 2024.docx"
+                            target="_blank" class="px-3 py-2 font-semibold uppercase edital-button">
+                            Clique aqui
+                        </a>
+                    </div>
+
+                    <div class="edital py-2">
+                        <p class="text-xl font-semibold uppercase text-maire-500 mb-3">
+                            Resumo Simples (completo) em ODT
+                        </p>
+                        <a href="{{base_url()}}/assets/templates/2024/dist/documents/modelo-de-resumo-simples-completo-2024.odt" target="_blank"
+                            class="px-3 py-2 font-semibold uppercase edital-button">
+                            Clique aqui
+                        </a>
+                    </div>
+
+                    <h2 style="margin-top: 90px; margin-bottom: 40px; font-size: 30px;"
+                        class="text-xl font-semibold md:text-3xl sm:text-2xl xl:text-5xl xl:font-bold text-maire-500">
+                        TEMPLATES
+                    </h2>
+                        <div class="edital py-2">
+                            <p class="text-xl font-semibold uppercase text-maire-500 mb-3">
+                                Template Poster - EU Campus de Russas em pptx
+                        </p>
+                        <a href="{{base_url()}}/assets/templates/2024/dist/documents/Template Poster - EU Campus de Russas.pptx" target="_blank"
+                            class="px-3 py-2 font-semibold uppercase edital-button">
+                            Clique aqui
+                        </a>
+                    </div>
+                    <div class="edital py-2">
+                        <p class="text-xl font-semibold uppercase text-maire-500">
+                            TEMPLATE PARA APRESENTAÇÃO ORAL E PITCH EU 2024 EM PPTX
+                        </p>
+                        <p class="mb-3">
+                            obs: No caso do pitch, deve-se usar apenas uma página de slide do template
+                        </p>
+                        <a href="{{base_url()}}/assets/templates/2024/dist/documents/Template Apresentacao EU 2024.pptx" target="_blank"
+                            class="px-3 py-2 font-semibold uppercase edital-button">
+                            Clique aqui
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
