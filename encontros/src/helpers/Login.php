@@ -117,7 +117,7 @@ class Login
 
     public static function checkLogin()
     {
-        return isset($_SESSION['logado']) || $_SESSION['logado'] || (int) $_SESSION["id"] > 0;
+        return ($_SESSION['logado'] ?? false) === true && (int) ($_SESSION['id'] ?? 0) > 0;
     }
 
     public static function checkAccess($nivel)
